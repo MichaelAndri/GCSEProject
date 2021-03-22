@@ -5,36 +5,54 @@ import keyboard
 p1password = "password1"
 p2password = "password2"
 
-print("Please enter credentials player1")
-password = input("ENTER PASSWORD:")
-access = False
-for access == False:
-    if password == p1password:
-        print("Welcome Player 1")
-        access = True
-    else:
-        print("Password Incorrect.")
-        password("TRY AGAIN")
+# print("Please enter credentials player1")
+# password = input("ENTER PASSWORD:")
+# access = False
+# for access == False:
+#     if password == p1password:
+#         print("Welcome Player 1")
+#         access = True
+#     else:
+#         print("Password Incorrect.")
+#         password("TRY AGAIN")
 
-print("Please enter credentials player2")
-password = input("ENTERPASSWORD:")
-##########################################
+# print("Please enter credentials player2")
+# password = input("ENTERPASSWORD:")
+# ##########################################
+
+# rounds = 
 
 
+def dice(dice1, dice2):
+    dice1 = random.randint(1,6)
+    dice2 = random.randint(1,6)
 
+# player1Score = 
+# player2Score =
 
-# 1dieA = random.randint(1,6)
-# 1dieB = random.randint(1,6)
-# 2dieA = random.randint(1,6)
-# 2dieB = random.randint(1,6)
-
-# player1Score = 1dieA+1dieB
-# player2Score = 2dieA+2dieB
-
-# player1prompt = print("Player 1 please press space to roll")
+player1prompt = print("Player 1")
 # if keyboard.is_pressed('space'):
-#     print("You rolled a", die1)
+dice1 = random.randint(1,6)
+dice2 = random.randint(1,6)
+total1 = dice1 + dice2
+print("You rolled a", dice1, "and a", dice2)
+print("your score is", total1)
 
+player1prompt = print("Player 2")
+# if keyboard.is_pressed('space'):
+dice1 = random.randint(1,6)
+dice2 = random.randint(1,6)
+total2 = dice1 + dice2
+print("You rolled a", dice1, "and a", dice2)
+print("your score is", total2)
+
+player1prompt = print("Player 1")
+# if keyboard.is_pressed('space'):
+dice1 = random.randint(1,6)
+dice2 = random.randint(1,6)
+total1 = total1 + dice1 + dice2
+print("You rolled a", dice1, "and a", dice2)
+print("your score is", total1)
 
 
 
