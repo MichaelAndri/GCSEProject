@@ -1,68 +1,82 @@
 import random
-import keyboard
+import time
 
 ######################AUTHENETICATION############
 password = "password"
 players = "player1" or "player2"
-access = True
+Player1Points = 0
+Player2Points = 0
+Player1Tiebreaker = 0
+Player2Tiebreaker = 0
 
-while access:
-    player = input("What is your username")
-    if player != players:
-        print("Incorrect username")
-    
-    if player == "player1":
-        print("welcome player1")
-    if player == "player2":
-        pwinput = input("ENTER PASSWORD:")  
-        if pw1input == password:
-            print("access granted")
-           
-            access = True
-            break   
-   
-    
-# if pw1input != password:
-#         print("Password Incorrect.")
-#         access = True
-        
+def login():
+    while True:
+        username = input("What is your username")
+        password = input("What is your password")
+        if username != players:
+            print("Incorrect username. Please try again")
+            continue
+
+        if password != 'password':
+            print("Incorrect password. Please try again")
+            continue
+
+        print(f'Welcome, {username} you have been logged in.')
+        return username
+
+print("Player 1 please login.")
+login()
+print("player 2 please login.")
+login()
+
+#  if player == "player1":
+#             print("welcome player1")
+#             pwi = input("Player1 please enter your password")
+#             if pwi == password:
+#                 print("access granted")
+#                 access = True
+
+#         if player == "player2":
+#             print("welcome player2")
+#             pwi = input("Player2 please enter your password")
+#             if pwi == password:
+#                 print("access granted")    
+#                 access = False
+
+       
+#########  ROLLS DICE AND WORKS OUT TOTAL FOR THAT ROLL###############
 
 
-# ##########################################
+def roll():
+    dice1 = random.randint(1,6)
+    dice2 = random.randint(1,6)
+    change = 10 if (dice1+dice2) % 2 == 0 else -5
+    points = dice1 + dice2 + change
+    if dice1 == dice2:
+        points += random.randint(1,6)
+    return points
 
-# rounds = 
+for i in range(1,5):
+    Player1Points += roll()
+    print(f'After this round player1 you now have: {Player1Points} Points')
+    time.sleep(1)
+    Player2Points += roll()
+    print(f'After this round player2 you now have: {Player2Points} Points')
+    time.sleep(1)
 
+#########  TIEBREAKER  ###################
 
-# def dice(dice1, dice2):
-#     dice1 = random.randint(1,6)
-#     dice2 = random.randint(1,6)
+if Player1Points == Player2Points:
+    while True:
+        Player1Tiebreaker = random.randint(1,6)
+        Player2Tiebreaker = random.randint(1,6)
 
-# # player1Score = 
-# # player2Score =
+    if Player1Tiebreaker > Player2Tiebreaker:
+        Player2Points = 0
+    elif Player2Tiebreaker > Player1Tiebreaker:
+        Player1Points = 0 
 
-# player1prompt = print("Player 1")
-# # if keyboard.is_pressed('space'):
-# dice1 = random.randint(1,6)
-# dice2 = random.randint(1,6)
-# total1 = dice1 + dice2
-# print("You rolled a", dice1, "and a", dice2)
-# print("your score is", total1)
-
-# player1prompt = print("Player 2")
-# # if keyboard.is_pressed('space'):
-# dice1 = random.randint(1,6)
-# dice2 = random.randint(1,6)
-# total2 = dice1 + dice2
-# print("You rolled a", dice1, "and a", dice2)
-# print("your score is", total2)
-
-# player1prompt = print("Player 1")
-# # if keyboard.is_pressed('space'):
-# dice1 = random.randint(1,6)
-# dice2 = random.randint(1,6)
-# total1 = total1 + dice1 + dice2
-# print("You rolled a", dice1, "and a", dice2)
-# print("your score is", total1)
+############# WINNER #####################
 
 
 
